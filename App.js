@@ -17,8 +17,9 @@ https
 
         for (user of users) {
           user.HeightMt = user.HeightCm / 100;
-          user.BMI = user.WeightKg / (user.HeightMt * user.HeightMt);
-          user.BMI = user.BMI.toFixed(2);
+          user.BMI = (user.WeightKg / (user.HeightMt * user.HeightMt)).toFixed(
+            2
+          );
         }
 
         for (user of users) {
@@ -62,9 +63,11 @@ https
             user.Category == "Severely obese" ||
             user.Category == "Very Severely obese"
           ) {
+            // I considered above 25 BMI is overweight people
             count++;
           }
         }
+        console.log("Total No.of above overweight");
         console.log(count);
       });
     }
